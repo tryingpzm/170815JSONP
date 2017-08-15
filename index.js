@@ -3,7 +3,7 @@ var fs = require('fs')
 var url = require('url')
 
 //console.log(Object.keys(http))
-var port = process.env.PORT || 8888;
+var port = process.env.PORT || 80;
 
 var server = http.createServer(function(request, response){
 
@@ -29,7 +29,7 @@ var server = http.createServer(function(request, response){
   }else if(path === '/qq_private.jsonp'){
       var string = fs.readFileSync('./qq_private.jsonp','utf-8')
       response.setHeader('Content-Type', 'application/json;charset=utf-8')
-      string=string.replace("qq_private",query.name)
+      string=string.replace("{(callback)}",query.callback)
       response.end(string)
   }
   else{

@@ -1,4 +1,4 @@
-window.qq_private={
-  "name":"ken",
-  "password":"hahahaha"
-}
+{(callback)}({
+            "name":"ken",
+           "password":"hahahaha"
+         })

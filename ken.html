@@ -10,12 +10,24 @@
 <body>
     我是ken
     <script>
-        var script=document.createElement("script")
-        script.src="http://qq.com:8888/qq_private.jsonp?name=ken"
-        script.onload=function(){
-            console.log(window.qq_private)
+//        function fn(data){
+//            console.log(data)
+//        }
+//        var script=document.createElement("script")
+//        script.src="http://qq.com/qq_private.jsonp?functionName=fn"
+//        document.head.appendChild(script)
+        jsonpFn("http://qq.com/qq_private.jsonp",function(data){
+            console.log("第一次");
+            console.log(data)
+        })
+        function jsonpFn(url,fn){
+            var functionName="ken"+Math.floor(Math.random()*10000)
+            window[functionName]=fn;
+            var script=document.createElement("script")
+            script.src=url+"?callback="+functionName
+            document.head.appendChild(script)
         }
-        document.head.appendChild(script)
+
     </script>
 </body>
 </html>
