@@ -1,2 +1,1 @@
-通过JSONP方法完成跨域
-用户端通过查询字符串 ?name=xxx 可指定使用xxx变量存储数据
+用户通过函数调用即可实现JSONP跨域，需求参数：URL和自定义的数据处理函数（如fn(data){doSomething}//data即为获得的数据 ）
